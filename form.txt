@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Account</title>
+    <style>
+        body{
+            text-align:left;
+            border:groove;
+            border-left-color:blue;
+            border-left-width:5px;
+            padding-left:1em;
+            padding-bottom:1em;
+        }
+    </style>
+    <script type="text/javascript">
+        function formValidator() {
+            var Email = document.getElementById("email");
+            var Password = document.getElementsByName("password");
+            var Age = document.getElementById("age");
+            if (emailvalidator(email, "Please enter valid email address!!!")) {
+                if (passvalidator(password, "Please enter valid password!!!")) {
+                    return true;
+                }
+            }
+            return false;
+            function emailvalidator(elem, helperMsg) {
+                var emailExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                if (elem.value.match(emailExp)) {
+                    return true;
+                }
+                else {
+                    alert(helperMsg);
+                    elem.focus();
+                    return false;
+                }
+            }
+            function passvalidator(elem, helperMsg) {
+                var passExp = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+                if (elem.value.match(passExp)) {
+                    return true;
+                }
+                else {
+                    alert(helperMsg);
+                    elem.focus();
+                    return false;
+                }
+            }
+        }
+ </script>
+</head>
+<body>
+    <h1><b>Create an Account</b></h1>
+    <form onsubmit="return formValidator()">
+        Email:<br /><input type="text" id="email" /><br /><br />
+        Password:<br /><input type="password" name="password" /><br /><br />
+        Age:<br /><select id="age">
+             <option>Select Age</option></select><br /><br />
+        Tell us a little about Yourself:<br /><textarea rows="5" cols="50" ></textarea><br /><br />
+        <input type="checkbox"<p>I agree to this 
+        <a href="https://policies.google.com/terms?hl=en-US">terms of service</a></p>
+        <input type="submit" value="signup" /></input>
+    </form>
+</body>
+</html>
